@@ -9,6 +9,10 @@ import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
+  app.get('/', (req, res) => {
+    res.status(200).json({ message: 'This is my Stage 1 task' });
+  } )
+
   // Health check endpoint
   app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
